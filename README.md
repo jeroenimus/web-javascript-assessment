@@ -4,4 +4,4 @@ This project was created with [Visual Studio Code](https://visualstudio.microsof
 
 ## Bulma
 
-This project used [Bulma](https://bulma.io/) for styling.
+This project made use of [Bulma](https://bulma.io/) for styling.
