@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-light" lang="en">
+<html lang="en">
   <head>
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link rel="stylesheet" href="assets/styles/bulma.css">
@@ -12,12 +12,12 @@
 
   <body>
     <nav class="navbar has-shadow" aria-label="navigation">
-
       <div class="navbar-brand">
         <div class="navbar-item">
-          <img src="assets/images/logo.png" alt="logo">
-          <span class="ml-2 has-text-weight-semibold is-unselectable">Bazaar Express Transport</span>
+          <img src="assets/images/logo.png" alt="Logo">
+          <p class="ml-2 has-text-primary has-text-weight-semibold is-unselectable">Bazaar Express Transport</p>
         </div>
+
         <a id="navbar-burger" class="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -27,19 +27,25 @@
       </div>
 
       <div id="navbar-menu" class="navbar-menu">
-        <div class="navbar-start"></div>
+        <div class="navbar-start">
+          <a id="hall-1-button" class="navbar-item is-tab">Hall 1</a>
+          <a id="hall-2-button" class="navbar-item is-tab">Hall 2</a>
+        </div>
+
         <div class="navbar-end">
           <div class="navbar-item">
-            <span class="has-text-weight-semibold is-unselectable">&copy; 2024 Jeroen van Vugt</span>
+            <p class="has-text-weight-semibold is-unselectable">&copy; 2024 Jeroen van Vugt</p>
           </div>
           <div class="navbar-item">
-            <a href="https://bulma.io">
-              <img id="made-with-bulma" src="https://bulma.io/assets/images/made-with-bulma.png" alt="Made with Bulma">
+            <a href="https://bulma.io" target="_blank">
+              <picture>
+                <source srcset="https://bulma.io/assets/images/made-with-bulma--dark.png" media="(prefers-color-scheme: dark)">
+                <img id="made-with-bulma" src="https://bulma.io/assets/images/made-with-bulma.png" alt="Made with Bulma">
+              </picture>
             </a>
           </div>
         </div>
       </div>
-
     </nav>
 
     <main>
