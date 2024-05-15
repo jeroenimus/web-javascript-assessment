@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="assets/styles/bulma.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="main.js" type="module"></script>
+    <title>Bazaar Express Transport</title>
+  </head>
+
+  <body>
+    <nav class="navbar has-shadow" role="navigation" aria-label="main">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <img src="assets/images/logo.png" alt="Logo">
+          <p class="ml-2 has-text-primary has-text-weight-semibold is-unselectable">Bazaar Express Transport</p>
+        </div>
+
+        <a id="navbar-burger" class="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbar-menu" class="navbar-menu">
+        <div class="navbar-start">
+          <a id="tab-1" class="navbar-item is-tab">Hall 1</a>
+          <a id="tab-2" class="navbar-item is-tab">Hall 2</a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <p class="has-text-weight-semibold is-unselectable">&copy; 2024 Jeroen van Vugt</p>
+          </div>
+          <div class="navbar-item">
+            <a href="https://bulma.io" target="_blank">
+              <picture>
+                <source srcset="https://bulma.io/assets/images/made-with-bulma--dark.png" media="(prefers-color-scheme: dark)">
+                <img id="made-with-bulma" src="https://bulma.io/assets/images/made-with-bulma.png" alt="Made with Bulma">
+              </picture>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <button id="truck-button" class="button is-primary is-soft" disabled>Add Truck</button>
+            </div>
+            <div class="level-item">
+              <button id="conveyor-button" class="button is-primary is-soft" disabled>Add Conveyor</button>
+            </div>
+          </div>
+
+          <div class="level-right">
+            <div class="level-item">
+              <button id="weather-button" class="button is-info is-soft" disabled>Change Weather</button>
+            </div>
+          </div>
+        </nav>
+      </section>
+
+      <hr>
+
+      <section id="hall-1" class="section is-hidden">Hall 1</section>
+      <section id="hall-2" class="section is-hidden">Hall 2</section>
+    </main>
+  </body>
+</html>
