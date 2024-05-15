@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <nav class="navbar has-shadow" aria-label="navigation">
+    <nav class="navbar has-shadow" role="navigation" aria-label="main">
       <div class="navbar-brand">
         <div class="navbar-item">
           <img src="assets/images/logo.png" alt="Logo">
@@ -28,8 +28,8 @@
 
       <div id="navbar-menu" class="navbar-menu">
         <div class="navbar-start">
-          <a id="hall-1-button" class="navbar-item is-tab">Hall 1</a>
-          <a id="hall-2-button" class="navbar-item is-tab">Hall 2</a>
+          <a id="tab-1" class="navbar-item is-tab">Hall 1</a>
+          <a id="tab-2" class="navbar-item is-tab">Hall 2</a>
         </div>
 
         <div class="navbar-end">
@@ -49,7 +49,29 @@
     </nav>
 
     <main>
-      <section id="root" class="section"></section>
+      <section class="section">
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <button id="truck-button" class="button is-primary is-soft" disabled>Add Truck</button>
+            </div>
+            <div class="level-item">
+              <button id="conveyor-button" class="button is-primary is-soft" disabled>Add Conveyor</button>
+            </div>
+          </div>
+
+          <div class="level-right">
+            <div class="level-item">
+              <button id="weather-button" class="button is-info is-soft" disabled>Change Weather</button>
+            </div>
+          </div>
+        </nav>
+      </section>
+
+      <hr>
+
+      <section id="hall-1" class="section is-hidden">Hall 1</section>
+      <section id="hall-2" class="section is-hidden">Hall 2</section>
     </main>
   </body>
 </html>
