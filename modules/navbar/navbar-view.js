@@ -14,7 +14,7 @@ class NavbarView {
   switchTab(id) {
     const tabs = this.#navbarMenu.querySelectorAll('a[id^="tab-"]');
 
-    for(let tab of tabs) {
+    for (let tab of tabs) {
       (+tab.id.at(-1) === id) ? tab.classList.add('is-active') : tab.classList.remove('is-active');
     }
   }
@@ -22,7 +22,7 @@ class NavbarView {
   showHall(id) {
     const halls = document.body.querySelectorAll('section[id^="hall-"]');
 
-    for(let hall of halls) {
+    for (let hall of halls) {
       (+hall.id.at(-1) === id) ? hall.classList.remove('is-hidden') : hall.classList.add('is-hidden');
     }
   }
