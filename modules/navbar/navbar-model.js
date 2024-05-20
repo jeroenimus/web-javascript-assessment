@@ -3,7 +3,9 @@ class NavbarModel {
   #onHallChanged;
 
   constructor() {
-    if (sessionStorage.getItem('selectedHall') === null) { sessionStorage.setItem('selectedHall', 1); }
+    if (sessionStorage.getItem('selectedHall') === null) {
+      sessionStorage.setItem('selectedHall', 1);
+    }
     
     this.#selectedHall = +sessionStorage.getItem('selectedHall');
   }
