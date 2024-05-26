@@ -1,49 +1,51 @@
 class NavbarView {
-  #navbarMenu;
-  #navbarBurger;
+  #burger;
+  #menu;
+  #main;
 
   constructor() {
-    this.#navbarBurger = document.getElementById('navbar-burger');
-    this.#navbarMenu = document.getElementById('navbar-menu');
+    this.#burger = document.getElementById('navbar-burger');
+    this.#menu = document.getElementById('navbar-menu');
+    this.#main = document.getElementById('main');
   }
 
   initialize() {
-    this.#navbarBurger.addEventListener('click', this.#handleNavbarBurger);
+    this.#burger.addEventListener('click', this.#handleBurger);
   }
 
-  switchTab(id) {
-    const tabs = this.#navbarMenu.querySelectorAll('a[id^="tab-"]');
+  showActiveTab(id) {
+    const tabs = this.#menu.querySelectorAll('.navbar-start > .navbar-item');
 
-    for(let tab of tabs) {
-      (+tab.id.at(-1) === id) ? tab.classList.add('is-active') : tab.classList.remove('is-active');
+    for (let tab of tabs) {
+      (tab.id === id) ? tab.classList.add('is-active') : tab.classList.remove('is-active');
     }
   }
 
-  showHall(id) {
-    const halls = document.body.querySelectorAll('section[id^="hall-"]');
+  showActiveHall(id) {
+    const halls = this.#main.querySelectorAll('section[id|=hall]');
 
-    for(let hall of halls) {
-      (+hall.id.at(-1) === id) ? hall.classList.remove('is-hidden') : hall.classList.add('is-hidden');
+    for (let hall of halls) {
+      (hall.id === id) ? hall.classList.remove('is-hidden') : hall.classList.add('is-hidden');
     }
   }
 
-  bindChangeHall(handler) {
-    const tabs = this.#navbarMenu.querySelector('.navbar-start');
+  bindSwitchTab(handler) {
+    const tabs = this.#menu.querySelector('.navbar-start');
     
     tabs.addEventListener('click', (event) => {
       const isNavbarItem = event.target.classList.contains('navbar-item');
       if (!isNavbarItem) { return; }
 
-      handler(+event.target.id.at(-1));
+      handler(event.target.id);
     });
   }
 
-  #handleNavbarBurger = () => {
-    this.#navbarBurger.classList.toggle('is-active');
-    this.#navbarMenu.classList.toggle('is-active');
+  #handleBurger = () => {
+    this.#burger.classList.toggle('is-active');
+    this.#menu.classList.toggle('is-active');
 
-    const isExpanded = this.#navbarBurger.getAttribute('aria-expanded');
-    this.#navbarBurger.setAttribute('aria-expanded', (isExpanded === 'false') ? 'true' : 'false');
+    const isExpanded = this.#burger.getAttribute('aria-expanded');
+    this.#burger.setAttribute('aria-expanded', (isExpanded === 'false') ? 'true' : 'false');
   }
 }
 

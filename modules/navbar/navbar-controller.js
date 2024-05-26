@@ -1,31 +1,37 @@
 class NavbarController {
-  #navbar;
+  #model;
   #view;
 
   constructor(model, view) {
-    this.#navbar = model;
+    this.#model = model;
     this.#view = view;
   }
 
   initialize() {
-    this.#navbar.bindHallChanged(this.onHallChanged);
+    this.#model.bindTabChanged(this.onTabChanged);
+    this.#model.bindHallChanged(this.onHallChanged);
 
     this.#view.initialize();
-    this.#view.bindChangeHall(this.handleChangeHall);
+    this.#view.bindSwitchTab(this.handleSwitchTab);
 
-    this.onHallChanged(this.#navbar.getSelectedHall());
+    this.onTabChanged(this.#model.getActiveTab());
+    this.onHallChanged(this.#model.getActiveHall());
+  }
+
+  onTabChanged = (id) => {
+    this.#view.showActiveTab(id);
   }
 
   onHallChanged = (id) => {
-    this.#view.switchTab(id);
-    this.#view.showHall(id);
+    this.#view.showActiveHall(id);
   }
 
-  handleChangeHall = (id) => {
-    const isCurrentHall = this.#navbar.getSelectedHall() === id;
-    if (isCurrentHall) { return; }
+  handleSwitchTab = (id) => {
+    const isCurrentTab = this.#model.getActiveTab() === id;
+    if (isCurrentTab) { return; }
     
-    this.#navbar.setSelectedHall(id);
+    this.#model.setActiveTab(id);
+    this.#model.setActiveHall('hall-' + id.at(-1));
   }
 }
 
