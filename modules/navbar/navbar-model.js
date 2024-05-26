@@ -1,24 +1,46 @@
 class NavbarModel {
-  #selectedHall;
+  #activeTab;
+  #activeHall;
+  #onTabChanged;
   #onHallChanged;
 
   constructor() {
-    if (sessionStorage.getItem('selectedHall') === null) {
-      sessionStorage.setItem('selectedHall', 1);
+    if (sessionStorage.getItem('activeTab') === null) {
+      sessionStorage.setItem('activeTab', 'tab-1');
+    }
+
+    if (sessionStorage.getItem('activeHall') === null) {
+      sessionStorage.setItem('activeHall', 'hall-1');
     }
     
-    this.#selectedHall = +sessionStorage.getItem('selectedHall');
+    this.#activeTab = sessionStorage.getItem('activeTab');
+    this.#activeHall = sessionStorage.getItem('activeHall');
   }
 
-  getSelectedHall() {
-    return this.#selectedHall;
+  getActiveTab() {
+    return this.#activeTab;
   }
 
-  setSelectedHall(id) {
-    this.#selectedHall = id;
+  setActiveTab(id) {
+    this.#activeTab = id;
+    this.#onTabChanged(id);
+
+    sessionStorage.setItem('activeTab', id);
+  }
+
+  getActiveHall() {
+    return this.#activeHall;
+  }
+
+  setActiveHall(id) {
+    this.#activeHall = id;
     this.#onHallChanged(id);
 
-    sessionStorage.setItem('selectedHall', id)
+    sessionStorage.setItem('activeHall', id)
+  }
+
+  bindTabChanged(callback) {
+    this.#onTabChanged = callback;
   }
 
   bindHallChanged(callback) {
