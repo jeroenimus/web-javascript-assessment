@@ -45,7 +45,7 @@ class NavbarView {
     this.#menu.classList.toggle('is-active');
 
     const isExpanded = this.#burger.getAttribute('aria-expanded');
-    this.#burger.setAttribute('aria-expanded', (isExpanded === 'false') ? 'true' : 'false');
+    this.#burger.ariaExpanded = (isExpanded === 'false') ? 'true' : 'false';
   }
 }
 
