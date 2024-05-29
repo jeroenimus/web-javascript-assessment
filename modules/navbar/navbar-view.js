@@ -17,7 +17,12 @@ class NavbarView {
     const tabs = this.#menu.querySelectorAll('.navbar-start > .navbar-item');
 
     for (let tab of tabs) {
-      (tab.id === id) ? tab.classList.add('is-active') : tab.classList.remove('is-active');
+      if (tab.id === id) {
+        tab.classList.add('is-active');
+      }
+      else {
+        tab.classList.remove('is-active');
+      }
     }
   }
 
@@ -25,7 +30,12 @@ class NavbarView {
     const halls = this.#main.querySelectorAll('section[id|=hall]');
 
     for (let hall of halls) {
-      (hall.id === id) ? hall.classList.remove('is-hidden') : hall.classList.add('is-hidden');
+      if (hall.id === id) {
+        hall.classList.remove('is-hidden');
+      }
+      else {
+        hall.classList.add('is-hidden');
+      }
     }
   }
 
@@ -45,7 +55,7 @@ class NavbarView {
     this.#menu.classList.toggle('is-active');
 
     const isExpanded = this.#burger.ariaExpanded;
-    this.#burger.ariaExpanded = (isExpanded === 'false') ? 'true' : 'false';
+    this.#burger.ariaExpanded = (isExpanded === 'false') ? true : false;
   }
 }
 
