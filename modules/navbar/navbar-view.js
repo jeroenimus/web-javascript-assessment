@@ -10,7 +10,7 @@ class NavbarView {
   }
 
   initialize() {
-    this.#burger.addEventListener('click', this.#handleBurger);
+    this.#burger.addEventListener('click', this.#handleToggleBurger);
   }
 
   showActiveTab(id) {
@@ -40,11 +40,11 @@ class NavbarView {
     });
   }
 
-  #handleBurger = () => {
+  #handleToggleBurger = () => {
     this.#burger.classList.toggle('is-active');
     this.#menu.classList.toggle('is-active');
 
-    const isExpanded = this.#burger.getAttribute('aria-expanded');
+    const isExpanded = this.#burger.ariaExpanded;
     this.#burger.ariaExpanded = (isExpanded === 'false') ? 'true' : 'false';
   }
 }
