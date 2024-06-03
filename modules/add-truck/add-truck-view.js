@@ -138,7 +138,6 @@ class AddTruckView {
 
   #createModal() {
     const modal = createElement('div', 'modal', 'is-active');
-
     const background = createElement('div', 'modal-background');
     const card = createElement('div', 'modal-card');
 
@@ -153,6 +152,7 @@ class AddTruckView {
 
   #createModalHeader() {
     const header = createElement('header', 'modal-card-head');
+    
     const title = createElement('p', 'modal-card-title');
     title.textContent = 'Add Truck';
 
@@ -175,9 +175,11 @@ class AddTruckView {
     }
 
     const form = createElement('form');
+
     const lengthInput = createInputField('truck-length', 'Length', 'Between 2 and 10');
     const widthInput = createInputField('truck-width', 'Width', 'Between 2 and 5');
     const intervalInput = createInputField('truck-interval', 'Interval', 'Seconds');
+
     const typeSelect = createSelectField('truck-type', 'Type', 'general', 'express', 'fragile', 'pallets', 'cold');
     typeSelect.classList.add('mb-3');
     
