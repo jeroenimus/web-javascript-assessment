@@ -7,10 +7,10 @@ class AddTruckController {
     this.#view = view;
   }
 
-  initialize() {
+  init() {
     this.#model.bindStepChanged(this.onStepChanged);
 
-    this.#view.initialize();
+    this.#view.init();
     this.#view.bindReset(this.handleReset);
     this.#view.bindPreviousStep(this.handlePreviousStep);
     this.#view.bindNextStep(this.handleNextStep);

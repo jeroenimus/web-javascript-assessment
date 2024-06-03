@@ -10,7 +10,7 @@ class AddTruckView {
     this.#modal = this.#createModal();
   }
 
-  initialize() {
+  init() {
     this.#addButton.addEventListener('click', this.#handleShowModal);
     this.#modal.addEventListener('click', this.#handleCloseModal);
     this.#modal.addEventListener('focusin', this.#handleFocusInput);

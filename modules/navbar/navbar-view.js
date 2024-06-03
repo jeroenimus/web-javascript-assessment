@@ -9,7 +9,7 @@ class NavbarView {
     this.#main = document.getElementById('main');
   }
 
-  initialize() {
+  init() {
     this.#burger.addEventListener('click', this.#handleToggleBurger);
   }
 

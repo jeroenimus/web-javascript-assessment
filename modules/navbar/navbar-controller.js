@@ -7,11 +7,11 @@ class NavbarController {
     this.#view = view;
   }
 
-  initialize() {
+  init() {
     this.#model.bindTabChanged(this.onTabChanged);
     this.#model.bindHallChanged(this.onHallChanged);
 
-    this.#view.initialize();
+    this.#view.init();
     this.#view.bindSwitchTab(this.handleSwitchTab);
 
     this.onTabChanged(this.#model.getActiveTab());
