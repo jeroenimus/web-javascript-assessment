@@ -15,7 +15,7 @@
       <div class="navbar-brand">
         <div class="navbar-item">
           <img src="assets/images/logo.png" alt="Logo">
-          <p class="ml-2 has-text-primary has-text-weight-semibold is-unselectable">Bazaar Express Transport</p>
+          <p class="ml-2 is-unselectable has-text-primary has-text-weight-semibold">Bazaar Express Transport</p>
         </div>
 
         <a id="navbar-burger" class="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
@@ -34,7 +34,7 @@
 
         <div class="navbar-end">
           <div class="navbar-item">
-            <p class="has-text-weight-semibold is-unselectable">&copy; 2024 Jeroen van Vugt</p>
+            <p class="is-unselectable has-text-weight-semibold">&copy; 2024 Jeroen van Vugt</p>
           </div>
           <div class="navbar-item">
             <a href="https://bulma.io" target="_blank">
@@ -48,21 +48,39 @@
       </div>
     </nav>
 
-    <main>
+    <main id="main">
       <section class="section">
         <nav class="level">
           <div class="level-left">
             <div class="level-item">
-              <button id="truck-button" class="button is-primary is-soft" disabled>Add Truck</button>
+              <button id="add-truck-button" class="button is-primary is-soft">Add Truck</button>
             </div>
             <div class="level-item">
-              <button id="conveyor-button" class="button is-primary is-soft" disabled>Add Conveyor</button>
+              <button id="add-conveyor-button" class="button is-primary is-soft" disabled>Add Conveyor</button>
             </div>
           </div>
 
           <div class="level-right">
             <div class="level-item">
-              <button id="weather-button" class="button is-info is-soft" disabled>Change Weather</button>
+              <div class="tags has-addons">
+                <span class="tag is-medium is-unselectable has-background-dark-soft has-text-dark-soft-invert">Weather</span>
+                <span id="weather-tag" class="tag is-medium is-unselectable has-background-info-soft has-text-info-soft-invert">?</span>
+              </div>
+            </div>
+            <div class="level-item">
+              <div class="tags has-addons">
+                <span class="tag is-medium is-unselectable has-background-dark-soft has-text-dark-soft-invert">Temperature</span>
+                <span id="temperature-tag" class="tag is-medium is-unselectable has-background-info-soft has-text-info-soft-invert">?</span>
+              </div>
+            </div>
+            <div class="level-item">
+              <div class="tags has-addons">
+                <span class="tag is-medium is-unselectable has-background-dark-soft has-text-dark-soft-invert">Wind</span>
+                <span id="wind-tag" class="tag is-medium is-unselectable has-background-info-soft has-text-info-soft-invert">?</span>
+              </div>
+            </div>
+            <div class="level-item">
+              <button id="change-weather-button" class="button is-warning is-soft" disabled>Change Weather</button>
             </div>
           </div>
         </nav>
