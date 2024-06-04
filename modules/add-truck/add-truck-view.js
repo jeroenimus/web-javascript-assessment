@@ -104,9 +104,9 @@ class AddTruckView {
 
     createButton.addEventListener('click', () => {
       const form = this.#modal.querySelector('form');
-      const length = form['truck-length'].value;
-      const width = form['truck-width'].value;
-      const interval = form['truck-interval'].value;
+      const length = form['truck-length'].value.trim();
+      const width = form['truck-width'].value.trim();
+      const interval = form['truck-interval'].value.trim();
       const type = form['truck-type'].value;
 
       this.#modal.remove();
