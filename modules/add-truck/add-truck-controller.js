@@ -37,7 +37,7 @@ class AddTruckController {
     this.#model.setActiveStep(current + 1);
   }
 
-  handleCreateTruck(length, width, interval, type) {
+  handleCreateTruck = (length, width, interval, type) => {
     // TODO: add to active hall
     console.log('length: ' + length);
     console.log('width: ' + width);
