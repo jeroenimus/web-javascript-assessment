@@ -7,10 +7,10 @@ class AddTruckController {
     this.#view = view;
   }
 
-  initialize() {
+  init() {
     this.#model.bindStepChanged(this.onStepChanged);
 
-    this.#view.initialize();
+    this.#view.init();
     this.#view.bindReset(this.handleReset);
     this.#view.bindPreviousStep(this.handlePreviousStep);
     this.#view.bindNextStep(this.handleNextStep);
@@ -34,10 +34,11 @@ class AddTruckController {
 
   handleNextStep = () => {
     const current = this.#model.getActiveStep();
+    
     this.#model.setActiveStep(current + 1);
   }
 
-  handleCreateTruck(length, width, interval, type) {
+  handleCreateTruck = (length, width, interval, type) => {
     // TODO: add to active hall
     console.log('length: ' + length);
     console.log('width: ' + width);
