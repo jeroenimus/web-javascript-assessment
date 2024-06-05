@@ -34,6 +34,7 @@ class AddTruckController {
 
   handleNextStep = () => {
     const current = this.#model.getActiveStep();
+    
     this.#model.setActiveStep(current + 1);
   }
 
