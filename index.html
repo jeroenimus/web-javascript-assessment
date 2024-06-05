@@ -34,7 +34,10 @@
 
         <div class="navbar-end">
           <div class="navbar-item">
-            <p class="is-unselectable has-text-weight-semibold">&copy; 2024 Jeroen van Vugt</p>
+            <p class="is-unselectable has-text-weight-semibold">© 2024 Jeroen van Vugt</p>
+          </div>
+          <div class="navbar-item">
+            <a class="is-unselectable has-text-weight-semibold" href="https://www.weatherapi.com" target="_blank">Powered by WeatherAPI</a>
           </div>
           <div class="navbar-item">
             <a href="https://bulma.io" target="_blank">
@@ -64,23 +67,23 @@
             <div class="level-item">
               <div class="tags has-addons">
                 <span class="tag is-medium is-unselectable has-background-dark-soft has-text-dark-soft-invert">Weather</span>
-                <span id="weather-tag" class="tag is-medium is-unselectable has-background-info-soft has-text-info-soft-invert">?</span>
+                <span id="weather-tag" class="tag is-medium is-unselectable has-background-info-soft has-text-info-soft-invert"></span>
               </div>
             </div>
             <div class="level-item">
               <div class="tags has-addons">
                 <span class="tag is-medium is-unselectable has-background-dark-soft has-text-dark-soft-invert">Temperature</span>
-                <span id="temperature-tag" class="tag is-medium is-unselectable has-background-info-soft has-text-info-soft-invert">?</span>
+                <span id="temperature-tag" class="tag is-medium is-unselectable has-background-info-soft has-text-info-soft-invert"></span>
               </div>
             </div>
             <div class="level-item">
               <div class="tags has-addons">
                 <span class="tag is-medium is-unselectable has-background-dark-soft has-text-dark-soft-invert">Wind</span>
-                <span id="wind-tag" class="tag is-medium is-unselectable has-background-info-soft has-text-info-soft-invert">?</span>
+                <span id="wind-tag" class="tag is-medium is-unselectable has-background-info-soft has-text-info-soft-invert"></span>
               </div>
             </div>
             <div class="level-item">
-              <button id="change-weather-button" class="button is-warning is-soft" disabled>Change Weather</button>
+              <button id="change-weather-button" class="button is-warning is-soft">Change Weather</button>
             </div>
           </div>
         </nav>
@@ -88,8 +91,12 @@
 
       <hr>
 
-      <section id="hall-1" class="section is-hidden">Hall 1</section>
-      <section id="hall-2" class="section is-hidden">Hall 2</section>
+      <section id="hall-1" class="section is-hidden">
+        <h1 class="title">Hall 1</h1>
+      </section>
+      <section id="hall-2" class="section is-hidden">
+        <h1 class="title">Hall 2</h1>
+      </section>
     </main>
   </body>
 </html>

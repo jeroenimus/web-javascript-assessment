@@ -3,3 +3,12 @@
   height: 24px;
   vertical-align: bottom;
 }
+
+#notification {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+#notification.fade-out {
+  opacity: 0;
+}
