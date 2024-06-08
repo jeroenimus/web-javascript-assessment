@@ -132,7 +132,7 @@ class AddTruckView {
 
     event.target.classList.remove('is-danger');
 
-    const help = event.target.parentElement.nextElementSibling;
+    const help = event.target.closest('.field').querySelector('.help');
     help.textContent = '';
   }
 
