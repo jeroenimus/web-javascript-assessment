@@ -1,12 +1,10 @@
 class NavbarView {
   #burger;
   #menu;
-  #main;
 
   constructor() {
     this.#burger = document.getElementById('navbar-burger');
     this.#menu = document.getElementById('navbar-menu');
-    this.#main = document.getElementById('main');
   }
 
   init() {
@@ -27,7 +25,7 @@ class NavbarView {
   }
 
   showActiveHall(id) {
-    const halls = this.#main.querySelectorAll('section[id|=hall]');
+    const halls = document.body.querySelectorAll('main > section[id|=hall]');
 
     for (let hall of halls) {
       if (hall.id === id) {
