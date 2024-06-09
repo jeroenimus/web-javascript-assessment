@@ -34,15 +34,15 @@ class AddTruckView {
     }
 
     const nextButton = this.#modal.querySelector('#next-button');
-    const createButton = this.#modal.querySelector('#create-button');
+    const addButton = this.#modal.querySelector('#add-button');
 
     if (number === 3) {
       nextButton.classList.add('is-hidden');
-      createButton.classList.remove('is-hidden');
+      addButton.classList.remove('is-hidden');
     }
     else {
       nextButton.classList.remove('is-hidden');
-      createButton.classList.add('is-hidden');
+      addButton.classList.add('is-hidden');
     }
   }
 
@@ -99,8 +99,8 @@ class AddTruckView {
     });
   }
 
-  bindCreateTruck(handler) {
-    const createButton = this.#modal.querySelector('#create-button');
+  bindAddTruck(handler) {
+    const createButton = this.#modal.querySelector('#add-button');
 
     createButton.addEventListener('click', () => {
       const form = this.#modal.querySelector('form');
@@ -201,8 +201,8 @@ class AddTruckView {
     nextButton.textContent = 'Next';
 
     const createButton = createElement('button', 'button', 'is-success', 'is-soft');
-    createButton.id = 'create-button';
-    createButton.textContent = 'Create';
+    createButton.id = 'add-button';
+    createButton.textContent = 'Add';
 
     buttons.append(previousButton, nextButton, createButton);
     footer.append(buttons);
