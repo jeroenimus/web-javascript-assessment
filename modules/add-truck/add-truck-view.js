@@ -11,7 +11,6 @@ class AddTruckView {
   }
 
   init() {
-    this.#addButton.addEventListener('click', this.#handleShowModal);
     this.#modal.addEventListener('click', this.#handleCloseModal);
     this.#modal.addEventListener('focusin', this.#handleFocusInput);
   }
@@ -46,10 +45,12 @@ class AddTruckView {
     }
   }
 
-  bindReset(handler) {
+  bindShowModal(handler) {
     this.#addButton.addEventListener('click', () => {
       const form = this.#modal.querySelector('form');
       form.reset();
+
+      document.body.prepend(this.#modal);
 
       handler();
     });
@@ -113,10 +114,6 @@ class AddTruckView {
       
       handler(length, width, interval, type);
     });
-  }
-
-  #handleShowModal = () => {
-    document.body.prepend(this.#modal);
   }
 
   #handleCloseModal = (event) => {

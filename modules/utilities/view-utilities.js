@@ -84,3 +84,31 @@ export function createSelectField(id, text, ...options) {
   field.append(label, control);
   return field;
 }
+
+/**
+ * Creates an instance of a table.
+ * @param {string} id - The id of the table.
+ * @param {number} rows - The number of rows in the table.
+ * @param {number} columns - The number of columns in the table.
+ * @returns {HTMLTableElement}
+ */
+export function createTable(id, rows, columns) {
+  const table = document.createElement('table');
+  table.id = id;
+  table.className = 'table is-bordered';
+
+  const body = document.createElement('tbody');
+
+  for (let i = 0; i < rows; ++i) {
+    const row = document.createElement('tr');
+    
+    for (let j = 0; j < columns; ++j) {
+      row.append(document.createElement('td'));
+    }
+
+    body.append(row);
+  }
+
+  table.append(body)
+  return table;
+}

@@ -16,3 +16,24 @@
 #notification.fade {
   opacity: 0;
 }
+
+.is-dock td {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.is-box {
+  display: inline-block;
+  cursor: grab;
+  line-height: 0;
+  touch-action: none;
+}
+
+.is-box.is-grabbed {
+  cursor: grabbing;
+}
+
+.is-box > svg {
+  pointer-events: none;
+}

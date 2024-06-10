@@ -15,7 +15,7 @@ class AddTruckController {
     this.#model.bindStepChanged(this.onStepChanged);
 
     this.#view.init();
-    this.#view.bindReset(this.handleReset);
+    this.#view.bindShowModal(this.handleShowModal);
     this.#view.bindPreviousStep(this.handlePreviousStep);
     this.#view.bindNextStep(this.handleNextStep);
     this.#view.bindAddTruck(this.handleAddTruck);
@@ -25,7 +25,7 @@ class AddTruckController {
     this.#view.showStep(number);
   }
 
-  handleReset = () => {
+  handleShowModal = () => {
     this.#model.setActiveStep(0);
   }
 
