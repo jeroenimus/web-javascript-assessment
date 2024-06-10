@@ -1,6 +1,7 @@
 class AddTruckController {
   #model;
   #view;
+  
   #hall1;
   #hall2;
 
@@ -14,7 +15,6 @@ class AddTruckController {
   init() {
     this.#model.bindStepChanged(this.onStepChanged);
 
-    this.#view.init();
     this.#view.bindShowModal(this.handleShowModal);
     this.#view.bindPreviousStep(this.handlePreviousStep);
     this.#view.bindNextStep(this.handleNextStep);
@@ -38,7 +38,6 @@ class AddTruckController {
 
   handleNextStep = () => {
     const currentStep = this.#model.getActiveStep();
-    
     this.#model.setActiveStep(currentStep + 1);
   }
 

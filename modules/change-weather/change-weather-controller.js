@@ -11,7 +11,6 @@ class ChangeWeatherController {
     this.#model.bindWeatherChanged(this.onWeatherChanged);
     this.#model.bindFetchError(this.onFetchError);
 
-    this.#view.init();
     this.#view.bindChangeWeather(this.handleChangeWeather);
 
     this.#model.fetchWeatherData('amsterdam');

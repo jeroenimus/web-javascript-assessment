@@ -7,10 +7,9 @@ class AddTruckView {
 
   constructor() {
     this.#addButton = document.getElementById('add-truck-button');
-    this.#modal = this.#createModal();
-  }
 
-  init() {
+    this.#modal = this.#createModal();
+
     this.#modal.addEventListener('click', this.#handleCloseModal);
     this.#modal.addEventListener('focusin', this.#handleFocusInput);
   }
@@ -105,6 +104,7 @@ class AddTruckView {
 
     createButton.addEventListener('click', () => {
       const form = this.#modal.querySelector('form');
+      
       const length = form['truck-length'].value.trim();
       const width = form['truck-width'].value.trim();
       const interval = form['truck-interval'].value.trim();
