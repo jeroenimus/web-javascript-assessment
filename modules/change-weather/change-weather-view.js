@@ -2,7 +2,6 @@ import { isEmpty } from '../utilities/validation-utilities.js';
 import { createElement, createInputField } from '../utilities/view-utilities.js';
 
 class ChangeWeatherView {
-  #main;
   #changeButton;
   #weatherTag;
   #temperatureTag;
@@ -11,7 +10,6 @@ class ChangeWeatherView {
   #notification;
 
   constructor() {
-    this.#main = document.getElementById('main');
     this.#changeButton = document.getElementById('change-weather-button');
     this.#weatherTag = document.getElementById('weather-tag');
     this.#temperatureTag = document.getElementById('temperature-tag');
@@ -39,15 +37,14 @@ class ChangeWeatherView {
   showError(message) {
     this.#notification.textContent = message;
 
-    const divider = this.#main.querySelector('hr');
-    divider.after(this.#notification);
+    document.body.prepend(this.#notification);
 
     setTimeout(() => {
-      this.#notification.classList.add('fade-out');
+      this.#notification.classList.add('fade');
     }, 5000);
 
     setTimeout(() => {
-      this.#notification.classList.remove('fade-out');
+      this.#notification.classList.remove('fade');
       this.#notification.remove();
     }, 6000);
   }
@@ -95,7 +92,7 @@ class ChangeWeatherView {
 
     event.target.classList.remove('is-danger');
 
-    const help = event.target.parentElement.nextElementSibling;
+    const help = event.target.closest('.field').querySelector('.help');
     help.textContent = '';
   }
 
@@ -162,7 +159,7 @@ class ChangeWeatherView {
   }
 
   #createNotification() {
-    const notification = createElement('div', 'notification', 'mr-4', 'is-pulled-right', 'has-background-danger-soft', 'has-text-danger-soft-invert');
+    const notification = createElement('div', 'notification', 'has-background-danger-soft', 'has-text-danger-soft-invert');
     notification.id = 'notification';
     return notification;
   }

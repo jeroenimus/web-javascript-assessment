@@ -11,7 +11,6 @@ class AddTruckView {
   }
 
   init() {
-    this.#addButton.addEventListener('click', this.#handleShowModal);
     this.#modal.addEventListener('click', this.#handleCloseModal);
     this.#modal.addEventListener('focusin', this.#handleFocusInput);
   }
@@ -34,22 +33,24 @@ class AddTruckView {
     }
 
     const nextButton = this.#modal.querySelector('#next-button');
-    const createButton = this.#modal.querySelector('#create-button');
+    const addButton = this.#modal.querySelector('#add-button');
 
     if (number === 3) {
       nextButton.classList.add('is-hidden');
-      createButton.classList.remove('is-hidden');
+      addButton.classList.remove('is-hidden');
     }
     else {
       nextButton.classList.remove('is-hidden');
-      createButton.classList.add('is-hidden');
+      addButton.classList.add('is-hidden');
     }
   }
 
-  bindReset(handler) {
+  bindShowModal(handler) {
     this.#addButton.addEventListener('click', () => {
       const form = this.#modal.querySelector('form');
       form.reset();
+
+      document.body.prepend(this.#modal);
 
       handler();
     });
@@ -99,8 +100,8 @@ class AddTruckView {
     });
   }
 
-  bindCreateTruck(handler) {
-    const createButton = this.#modal.querySelector('#create-button');
+  bindAddTruck(handler) {
+    const createButton = this.#modal.querySelector('#add-button');
 
     createButton.addEventListener('click', () => {
       const form = this.#modal.querySelector('form');
@@ -113,10 +114,6 @@ class AddTruckView {
       
       handler(length, width, interval, type);
     });
-  }
-
-  #handleShowModal = () => {
-    document.body.prepend(this.#modal);
   }
 
   #handleCloseModal = (event) => {
@@ -132,7 +129,7 @@ class AddTruckView {
 
     event.target.classList.remove('is-danger');
 
-    const help = event.target.parentElement.nextElementSibling;
+    const help = event.target.closest('.field').querySelector('.help');
     help.textContent = '';
   }
 
@@ -201,8 +198,8 @@ class AddTruckView {
     nextButton.textContent = 'Next';
 
     const createButton = createElement('button', 'button', 'is-success', 'is-soft');
-    createButton.id = 'create-button';
-    createButton.textContent = 'Create';
+    createButton.id = 'add-button';
+    createButton.textContent = 'Add';
 
     buttons.append(previousButton, nextButton, createButton);
     footer.append(buttons);
