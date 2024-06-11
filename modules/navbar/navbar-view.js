@@ -5,9 +5,7 @@ class NavbarView {
   constructor() {
     this.#burger = document.getElementById('navbar-burger');
     this.#menu = document.getElementById('navbar-menu');
-  }
 
-  init() {
     this.#burger.addEventListener('click', this.#handleToggleBurger);
   }
 

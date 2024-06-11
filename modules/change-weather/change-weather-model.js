@@ -3,6 +3,7 @@ class ChangeWeatherModel {
   #weather;
   #temperature;
   #wind;
+  
   #onWeatherChanged;
   #onFetchError;
 

@@ -7,10 +7,9 @@ class AddTruckView {
 
   constructor() {
     this.#addButton = document.getElementById('add-truck-button');
-    this.#modal = this.#createModal();
-  }
 
-  init() {
+    this.#modal = this.#createModal();
+
     this.#modal.addEventListener('click', this.#handleCloseModal);
     this.#modal.addEventListener('focusin', this.#handleFocusInput);
   }
@@ -33,15 +32,15 @@ class AddTruckView {
     }
 
     const nextButton = this.#modal.querySelector('#next-button');
-    const addButton = this.#modal.querySelector('#add-button');
+    const createButton = this.#modal.querySelector('#create-button');
 
     if (number === 3) {
       nextButton.classList.add('is-hidden');
-      addButton.classList.remove('is-hidden');
+      createButton.classList.remove('is-hidden');
     }
     else {
       nextButton.classList.remove('is-hidden');
-      addButton.classList.add('is-hidden');
+      createButton.classList.add('is-hidden');
     }
   }
 
@@ -100,11 +99,12 @@ class AddTruckView {
     });
   }
 
-  bindAddTruck(handler) {
-    const createButton = this.#modal.querySelector('#add-button');
+  bindCreateTruck(handler) {
+    const createButton = this.#modal.querySelector('#create-button');
 
     createButton.addEventListener('click', () => {
       const form = this.#modal.querySelector('form');
+      
       const length = form['truck-length'].value.trim();
       const width = form['truck-width'].value.trim();
       const interval = form['truck-interval'].value.trim();
@@ -198,8 +198,8 @@ class AddTruckView {
     nextButton.textContent = 'Next';
 
     const createButton = createElement('button', 'button', 'is-success', 'is-soft');
-    createButton.id = 'add-button';
-    createButton.textContent = 'Add';
+    createButton.id = 'create-button';
+    createButton.textContent = 'Create';
 
     buttons.append(previousButton, nextButton, createButton);
     footer.append(buttons);

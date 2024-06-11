@@ -6,6 +6,7 @@ class ChangeWeatherView {
   #weatherTag;
   #temperatureTag;
   #windTag;
+
   #modal;
   #notification;
 
@@ -14,11 +15,10 @@ class ChangeWeatherView {
     this.#weatherTag = document.getElementById('weather-tag');
     this.#temperatureTag = document.getElementById('temperature-tag');
     this.#windTag = document.getElementById('wind-tag');
+
     this.#modal = this.#createModal();
     this.#notification = this.#createNotification();
-  }
 
-  init() {
     this.#changeButton.addEventListener('click', this.#handleShowModal);
     this.#modal.addEventListener('click', this.#handleCloseModal);
     this.#modal.addEventListener('focusin', this.#handleFocusInput);
@@ -139,10 +139,10 @@ class ChangeWeatherView {
 
     const form = createElement('form');
 
-    const cityInput = createInputField('location', 'Location', 'e.g. Amsterdam');
+    const locationInput = createInputField('location', 'Location', 'e.g. Amsterdam');
 
     tags.append(titleTag, locationTag);
-    form.append(cityInput);
+    form.append(locationInput);
     body.append(tags, form);
     return body;
   }

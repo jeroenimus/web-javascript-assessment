@@ -1,6 +1,7 @@
 class NavbarModel {
   #activeTab;
   #activeHall;
+  
   #onTabChanged;
   #onHallChanged;
 

@@ -1,6 +1,10 @@
+import { TruckModel } from '../truck/truck-model.js';
+import { createTruckId } from '../utilities/random-utilities.js';
+
 class AddTruckController {
   #model;
   #view;
+  
   #hall1;
   #hall2;
 
@@ -14,11 +18,10 @@ class AddTruckController {
   init() {
     this.#model.bindStepChanged(this.onStepChanged);
 
-    this.#view.init();
     this.#view.bindShowModal(this.handleShowModal);
     this.#view.bindPreviousStep(this.handlePreviousStep);
     this.#view.bindNextStep(this.handleNextStep);
-    this.#view.bindAddTruck(this.handleAddTruck);
+    this.#view.bindCreateTruck(this.handleCreateTruck);
   }
 
   onStepChanged = (number) => {
@@ -38,18 +41,20 @@ class AddTruckController {
 
   handleNextStep = () => {
     const currentStep = this.#model.getActiveStep();
-    
     this.#model.setActiveStep(currentStep + 1);
   }
 
-  handleAddTruck = (length, width, interval, type) => {
+  handleCreateTruck = (length, width, interval, type) => {
+    const id = createTruckId();
+    const truck = new TruckModel(id, length, width, interval, type);
+
     const currentHall = sessionStorage.getItem('activeHall');
 
     if (currentHall === 'hall-1') {
-      this.#hall1.addTruck(length, width, interval, type);
+      this.#hall1.addTruck(truck);
     }
     else {
-      this.#hall2.addTruck(length, width, interval, type);
+      this.#hall2.addTruck(truck);
     }
   }
 }
