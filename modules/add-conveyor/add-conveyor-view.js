@@ -5,7 +5,7 @@ class AddConveyorView {
     this.#addButton = document.getElementById('add-conveyor-button');
   }
 
-  bindAddConveyor(handler) {
+  bindCreateConveyor(handler) {
     this.#addButton.addEventListener('click', () => {
       handler();
     });

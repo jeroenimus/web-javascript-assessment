@@ -1,3 +1,6 @@
+import { ConveyorModel } from '../conveyor/conveyor-model.js';
+import { createConveyorId } from '../utilities/random-utilities.js';
+
 class AddConveyorController {
   #view;
 
@@ -11,17 +14,20 @@ class AddConveyorController {
   }
 
   init() {
-    this.#view.bindAddConveyor(this.handleAddConveyor);
+    this.#view.bindCreateConveyor(this.handleCreateConveyor);
   }
 
-  handleAddConveyor = () => {
+  handleCreateConveyor = () => {
+    const id = createConveyorId();
+    const conveyor = new ConveyorModel(id);
+    
     const currentHall = sessionStorage.getItem('activeHall');
 
     if (currentHall === 'hall-1') {
-      this.#hall1.addConveyor();
+      this.#hall1.addConveyor(conveyor);
     }
     else {
-      this.#hall2.addConveyor();
+      this.#hall2.addConveyor(conveyor);
     }
   }
 }

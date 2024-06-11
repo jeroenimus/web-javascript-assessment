@@ -1,14 +1,10 @@
-import { createTable } from '../utilities/view-utilities.js';
+import { createElement, createBox, createTable } from '../utilities/view-utilities.js';
 
 class HallView {
   #hall;
 
   constructor(id) {
     this.#hall = document.getElementById(id);
-  }
-
-  init() {
-    // remove?
   }
 
   showTruck(id, length, width, interval) {
@@ -18,6 +14,38 @@ class HallView {
     setTimeout(() => {
       dock.append(truck);
     }, interval * 1000);
+  }
+
+  showConveyor(id) {
+    const conveyor = this.#hall.querySelector('.is-conveyor:empty');
+    conveyor.id = id;
+
+    const image = createElement('img');
+    image.src = 'assets/images/conveyor.png';
+    image.alt = 'conveyor';
+
+    conveyor.append(image);
+  }
+
+  showBox(boxId, boxWidth, boxHeight, boxColour, boxMatrix, conveyorId) {
+    const box = createBox(boxId, boxWidth, boxHeight, boxColour, boxMatrix);
+
+    const conveyor = this.#hall.querySelector(`#${conveyorId}`);
+    conveyor.append(box);
+
+    setTimeout(() => {
+      box.classList.add('move');
+    }, 500);
+    
+    setTimeout(() => {
+      box.classList.remove('move');
+
+      const cell = createElement('div', 'cell');
+      cell.append(box);
+
+      const storage = this.#hall.querySelector('.grid');
+      storage.append(cell);
+    }, 2800);
   }
 
   bindDropBox(handler) {
@@ -39,7 +67,7 @@ class HallView {
         box.style.top = (box.offsetTop + event.movementY) + 'px';
       }
 
-      const onPointerUp = (event) => { // event needed?
+      const onPointerUp = (event) => {
         const boxLeft = box.getBoundingClientRect().left;
         const boxTop = box.getBoundingClientRect().top;
 
@@ -53,7 +81,7 @@ class HallView {
           box.style.left = null;
           box.style.top = null;
 
-          dropTarget.append(box)
+          dropTarget.append(box);
         }
         else {
           if (box.parentElement.tagName === 'TD') {

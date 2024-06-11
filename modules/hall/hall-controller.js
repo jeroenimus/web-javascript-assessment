@@ -9,8 +9,9 @@ class HallController {
 
   init() {
     this.#model.bindTruckAdded(this.onTruckAdded);
+    this.#model.bindConveyorAdded(this.onConveyorAdded);
+    this.#model.bindBoxAdded(this.onBoxAdded);
 
-    this.#view.init();
     this.#view.bindDropBox(this.handleDropBox);
   }
 
@@ -18,8 +19,16 @@ class HallController {
     this.#view.showTruck(id, length, width, interval);
   }
 
-  async handleDropBox(handler) {
-    return 1;
+  onConveyorAdded = (id) => {
+    this.#view.showConveyor(id);
+  }
+
+  onBoxAdded = (boxId, boxWidth, boxHeight, boxColour, boxMatrix, conveyorId) => {
+    this.#view.showBox(boxId, boxWidth, boxHeight, boxColour, boxMatrix, conveyorId);
+  }
+
+  handleDropBox = async () => {
+    // check if box can be dropped
   }
 }
 
