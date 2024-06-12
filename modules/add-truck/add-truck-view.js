@@ -49,6 +49,26 @@ class AddTruckView {
       const form = this.#modal.querySelector('form');
       form.reset();
 
+      const select = this.#modal.querySelector('#truck-type');
+      const weather = sessionStorage.getItem('weather');
+      const wind = sessionStorage.getItem('wind');
+      const temperature = sessionStorage.getItem('temperature');
+      
+      for (let i = 0; i < select.length; ++i) {
+        if (select[i].value === 'fragile' && weather.includes('rain') || weather.includes('snow')) {
+          select[i].disabled = true;
+        }
+        else if (select[i].value === 'pallets' && wind >= 50) {
+          select[i].disabled = true;
+        }
+        else if (select[i].value === 'cold' && temperature > 35) {
+          select[i].disabled = true;
+        }
+        else {
+          select[i].removeAttribute('disabled');
+        }
+      }
+
       document.body.prepend(this.#modal);
 
       handler();
