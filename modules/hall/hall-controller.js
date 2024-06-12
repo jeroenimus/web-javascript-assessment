@@ -27,8 +27,9 @@ class HallController {
     this.#view.showBox(boxId, boxWidth, boxHeight, boxColour, boxMatrix, conveyorId);
   }
 
-  handleDropBox = async () => {
-    // check if box can be dropped
+  handleDropBox = async (boxId, truckId, row, column) => {
+    const result = await this.#model.isInsideTruck(boxId, truckId, row, column);
+    return result;
   }
 }
 

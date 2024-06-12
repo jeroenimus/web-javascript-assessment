@@ -45,7 +45,7 @@ class HallView {
 
       const storage = this.#hall.querySelector('.grid');
       storage.append(cell);
-    }, 2800);
+    }, 2500);
   }
 
   bindDropBox(handler) {
@@ -67,7 +67,7 @@ class HallView {
         box.style.top = (box.offsetTop + event.movementY) + 'px';
       }
 
-      const onPointerUp = (event) => {
+      const onPointerUp = () => {
         const boxLeft = box.getBoundingClientRect().left;
         const boxTop = box.getBoundingClientRect().top;
 
@@ -78,19 +78,32 @@ class HallView {
         box.classList.remove('is-hidden');
 
         if (dropTarget !== null && dropTarget.tagName === 'TD') {
-          box.style.left = null;
-          box.style.top = null;
+          const truckId = dropTarget.closest('table').id;
+          const row = dropTarget.closest('tr').rowIndex;
+          const column = dropTarget.cellIndex;
 
-          dropTarget.append(box);
-        }
-        else {
-          if (box.parentElement.tagName === 'TD') {
+          handler(box.id, truckId, row, column)
+          .then((resultOK) => {
+            if (resultOK) {
+              dropTarget.append(box);
+            }
+            else {
+              if (box.parentElement.tagName === 'DIV') {
+                box.style.position = null;
+              }
+            }
+
             box.style.left = null;
             box.style.top = null;
+          });
+        }
+        else {
+          if (box.parentElement.tagName === 'DIV') {
+            box.style.position = null;
           }
-          else {
-            box.removeAttribute('style');
-          }
+
+          box.style.left = null;
+          box.style.top = null;
         }
 
         box.classList.remove('is-grabbed');
