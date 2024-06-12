@@ -35,6 +35,16 @@ class HallModel {
     this.#onBoxAdded(box.getId(), box.getWidth(), box.getHeight(), box.getColour(), box.getMatrix(), conveyorId);
   }
 
+  async isInsideTruck(boxId, truckId, row, column) {
+    const box = this.#boxes.find(item => item.getId() === boxId);
+    const truck = this.#trucks.find(item => item.getId() === truckId);
+
+    if (box.getWidth() + column > truck.getWidth()) { return false; }
+    if (box.getHeight() + row > truck.getLength()) { return false; }
+
+    return true;
+  }
+
   onBoxCreated = (box, conveyorId) => {
     this.addBox(box, conveyorId);
   }
