@@ -23,10 +23,20 @@ export function createBoxId() {
 }
 
 /**
- * Creates a random number.
+ * Creates a random number with a maximum.
  * @param {number} max - The largest number that can be returned (exclusive).
  * @returns {number}
  */
 export function createRandomNumber(max) {
   return Math.floor(Math.random() * max);
+}
+
+/**
+ * Creates a random number between a minimum and maximum.
+ * @param {number} min - The smallest number that can be returned (inclusive).
+ * @param {number} max - The largest number that can be returned (exclusive).
+ * @returns {number}
+ */
+export function createRandomNumberBetween(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
