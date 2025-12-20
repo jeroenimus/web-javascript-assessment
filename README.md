@@ -1,6 +1,6 @@
 # JavaScript Assessment
 
-This project was created with [Visual Studio Code](https://visualstudio.microsoft.com/#vscode-section).
+This project was created with [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Bulma
 
